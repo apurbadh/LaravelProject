@@ -4,7 +4,7 @@ services:
     
     laravel:
         container_name: laravel
-        build: .
+        image: hygenia_laravel
         ports:
             - "8000:8000"
         volumes:

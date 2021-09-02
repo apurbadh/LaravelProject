@@ -23,30 +23,30 @@
   </style>
 </head>
 <body>
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
   <h3>Register</h3>
   <br/>
   @csrf
   <div class="form-group">
     <label for="fullname">Full name</label>
-    <input type="text" class="form-control" id="fullname" placeholder="Enter full name" name="fullname">
+    <input type="text" class="form-control" id="fullname" placeholder="Enter full name" name="fullname" required>
   </div>
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="email" class="form-control" id="username" placeholder="Enter username" name="username">
+    <input type="email" class="form-control" id="username" placeholder="Enter username" name="username" required>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="username">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password1">
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" required>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Confirm Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" name="password2">
+    <label>Profile Picture : </label>
+    <input type="file" name="profile" required>
   </div>
   <a style="text-align: center;" href="/login">Already have an account ?</a><br/><br>
   <button type="submit" class="btn btn-primary">Submit</button>
