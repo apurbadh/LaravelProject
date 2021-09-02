@@ -33,7 +33,7 @@
   </div>
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="email" class="form-control" id="username" placeholder="Enter username" name="username" required>
+    <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>

@@ -17,10 +17,9 @@ class FormController extends Controller
         $email = $req->input("email");
         $passw = $req->input("password");
         $file = $req->file("profile");
-
-        $res = $file->store($file->getClientOriginalName());
-
-        return view("showdata");
+        $path = $file->store("public");
+        $path = str_replace("public", "/storage", $path);
+        return view("showdata", ["fullname" => $fullname, "username" => $username, "email" => $email, "password" => $passw, "result"=>$path]);
     }
 
 }
