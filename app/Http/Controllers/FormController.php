@@ -13,16 +13,17 @@ class FormController extends Controller
     }
 
     function store(Request $req){
+        $req->validate([
+            "fullname" => "required|max:255",
+            "username" => "required|max:255",
+            "email" => 'email address|required',
+            "password" => 'confirmed|required|min:8'
+        ]);
         $fullname = $req->input("fullname");
         $username = $req->input("username");
         $email = $req->input("email");
         $passw = $req->input("password");
         $file = $req->file("profile");
-        $req->validate([
-            "fullname" => "required|max:255",
-            "username" => "required|max:255",
-            ""
-        ]);
         $path = $file->store("public");
         $path = str_replace("public", "/storage", $path);
         $student = new Student();
@@ -31,6 +32,7 @@ class FormController extends Controller
         $student->email = $email;
         $student->password = Hash::make($passw);
         $student->save();
+        return redirect('/form');
     }
 
 }
