@@ -25,7 +25,15 @@
 <body>
 <form action="" method="POST" enctype="multipart/form-data">
   <h3>Register</h3>
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
   <br/>
   @csrf
   <div class="form-group">
