@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormController;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +15,4 @@ use App\Http\Controllers\FormController;
 */
 
 Route::resource('form', FormController::class);
+Route::resource("home", HomeController::class);
