@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Student;
+use App\Models\Student;
+use Illuminate\Support\Facades\Hash;
 
 class FormController extends Controller
 {
