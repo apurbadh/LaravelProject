@@ -25,6 +25,7 @@
 <body>
 <form action="" method="POST" enctype="multipart/form-data">
   <h3>Register</h3>
+
   <br/>
   @csrf
   <div class="form-group">
