@@ -10,11 +10,19 @@ use Illuminate\Support\Facades\Hash;
 class FormController extends Controller
 {
 
-    function index(){
-        return view("form");
+    public function index()
+    {
+        $users = Student::all();
+        return view("user.index", ["users" => $users]); 
     }
 
-    function store(Request $req){
+    function create()
+    {
+        return view("user.create");
+    }
+
+    function store(Request $req)
+    {
         $req->validate([
             "fullname" => "required|max:255",
             "name" => "required|max:255|unique:students",
@@ -38,4 +46,25 @@ class FormController extends Controller
         return redirect('/form')->with("message", "Sucessfully registered !");
     }
 
+    public function edit(Request $req, Student $student)
+    {
+        return view("user.edit", compact("student"));
+    }
+
+    public function update(Request $req, Student $student)
+    {
+        $req->validate([
+            "fullname" => "required|max:255",
+            "name" => "required",
+            "email" => "required|email"
+        ]);
+        $student->update($req->all());
+        return redirect("/student")->with('message','Student updated successfully');;
+    }
+
+    public function destroy(Student $student)
+    {
+        $student->delete();
+        return redirect('/student')->with("message", "Student deleted sucessfully");
+    }
 }

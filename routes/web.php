@@ -14,4 +14,4 @@ use App\Http\Controllers\FormController;
 |
 */
 
-Route::resource('form', FormController::class);
+Route::resource('student', FormController::class);
