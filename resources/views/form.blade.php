@@ -1,4 +1,4 @@
-<html>    
+<html>
 <head>
   <title>Register</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,7 +13,7 @@
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
     justify-content: center;
     border: 1px solid whitesmoke;
     padding: 50px;
@@ -27,11 +27,14 @@
   <h3>Register</h3>
 @if ($errors->any())
     <div class="alert alert-danger">
-        <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                {{ $error }}
             @endforeach
-        </ul>
+    </div>
+@endif
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
     </div>
 @endif
   <br/>
@@ -42,7 +45,7 @@
   </div>
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+    <input type="text" class="form-control" id="username" placeholder="Enter username" name="name" required>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -69,4 +72,4 @@
 </form>
 </body>
 <html>
-    
+
